@@ -79,7 +79,6 @@ async function install() {
   console.log('')
   green(options.package === 'npm' ? `  ${'pnpm'} run dev` : `  ${'pnpm'} dev`)
 }
-
 async function renderTemplate() {
   // 模板路径
   const templatePath = path.resolve(__dirname, `template`)
@@ -138,6 +137,7 @@ async function createWuJieProject() {
   clearConsole()
   console.log(gradient('#fff', '#f16b5f')('\n📦 Welcome To Create Template for WuJie! \n'))
   await createProjectQuestions()
+
   await renderTemplate()
   await install()
 }

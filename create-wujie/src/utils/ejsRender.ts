@@ -26,24 +26,25 @@ export async function ejsRender(filePath: string, name): Promise<void> {
     try {
       switch (extname) {
         case 'ts':
-          prettierCode = prettier.format(code, { parser: 'babel', ...opts })
+          prettierCode = await prettier.format(code, { parser: 'babel', ...opts })
           break
         case 'tsx':
-          prettierCode = prettier.format(code, { parser: 'babel', ...opts })
+          prettierCode = await prettier.format(code, { parser: 'babel', ...opts })
           break
         case 'jsx':
-          prettierCode = prettier.format(code, { parser: 'babel', ...opts })
+          prettierCode = await prettier.format(code, { parser: 'babel', ...opts })
           break
         case 'js':
-          prettierCode = prettier.format(code, { parser: 'babel', ...opts })
+          prettierCode = await prettier.format(code, { parser: 'babel', ...opts })
           break
         default:
-          prettierCode = prettier.format(code, { parser: extname })
+          prettierCode = await prettier.format(code, { parser: extname })
           break
       }
     } catch (err) {
       console.log(err)
     }
+
     await fs.outputFile(outputFilePath, prettierCode)
     await fs.remove(readFilePath)
   } catch (error) {
