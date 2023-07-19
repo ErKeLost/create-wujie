@@ -4,6 +4,7 @@ import clearConsole from '@/utils/clearConsole'
 import createSpawnCmd from '@/utils/createSpawnCmd'
 import { ejsRender } from '@/utils/ejsRender'
 import options from '@/shared/options'
+import packageJson from '../package.json'
 import { renderTemplateFiles, mainFramework, subFramework } from '@/shared/templateFile'
 // import PackageDevice from '@/questions/packageManager'
 import projectName from '@/questions/projectName'
@@ -131,11 +132,15 @@ async function renderTemplate() {
 
   await Promise.all(renderTemplateFiles().map((file) => ejsRender(file, options.name)))
 }
-
 // create project
 async function createWuJieProject() {
   clearConsole()
-  console.log(gradient('#fff', '#f16b5f')('\n📦 Welcome To Create Template for WuJie! \n'))
+  console.log(
+    gradient(
+      '#fff',
+      '#f16b5f'
+    )(`\n📦 Welcome To Create Template for WuJie! V${packageJson.version} \n`)
+  )
   await createProjectQuestions()
 
   await renderTemplate()
