@@ -79,6 +79,7 @@ async function install() {
   console.log('')
   green(options.package === 'npm' ? `  ${'pnpm'} run dev` : `  ${'pnpm'} dev`)
 }
+
 async function renderTemplate() {
   // 模板路径
   const templatePath = path.resolve(__dirname, `template`)
