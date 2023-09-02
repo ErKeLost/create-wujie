@@ -1,6 +1,6 @@
 {
   "name": "create-wujie",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "",
   "bin": {
     "wujie": "create-wujie.cjs"
@@ -25,7 +25,7 @@
     "prompts": "^2.4.2"
   },
   "dependencies": {
-    "prettier": "latest"
+    "prettier": "2.8.0"
   },
   "publishConfig": {
     "access": "public",
